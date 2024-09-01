@@ -1,0 +1,22 @@
+# Step 1: Prepare build environment
+FROM gradle:8.9.0-jdk17 AS builder
+WORKDIR /home/gradle/project
+
+# Copy Gradle wrapper and build.gradle files first to leverage caching
+COPY gradle /home/gradle/project/gradle
+COPY gradlew /home/gradle/project/
+COPY build.gradle /home/gradle/project/
+COPY settings.gradle /home/gradle/project/
+
+# Copy the rest of the project files
+COPY . .
+
+# Build the project
+RUN ./gradlew build
+
+# Step 2: Create the final image
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+COPY --from=builder /home/gradle/project/build/libs/*.jar app.jar
+VOLUME /app/data
+ENTRYPOINT ["java", "-jar", "app.jar"]

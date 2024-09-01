@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ naver login 필요 데이터
+ -->
+
+<resources>
+    <string name="client_id">Z3LuPog1t88Ugo6iixUL</string>
+    <string name="client_secret">j7dm8dZNI8</string>
+    <string name="client_name">몽땅내땅</string>
+</resources>
+

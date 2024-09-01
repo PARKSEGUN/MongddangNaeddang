@@ -1,0 +1,4 @@
+Nori는 docker-compose.yml을 통해서 설치하는 방법이 따로 있지 않고 elasticsearch 설치 후 exec명령어로 설치해야 한다.
+sudo docker exec -it mtnt-elasticsearch bin/elasticsearch-plugin install analysis-nori
+
+nori는 elasticsearch 플러그인으로 한국어 텍스트 분석기.

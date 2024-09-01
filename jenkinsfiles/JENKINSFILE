@@ -1,0 +1,47 @@
+pipeline{
+	agent any
+
+	stages{
+		stage("parallel test"){
+			parallel{
+				stage("stage 1"){
+					steps{
+						echo "hello"
+					}
+				}
+				stage("stage 2"){
+					steps{
+						echo "world"
+					}
+				}
+			}
+			
+		}
+		stage("stage 3"){
+			steps{
+				echo "wow"
+			}
+		}
+	}
+	post{
+		always{
+			echo 'ALWAYS'
+		}
+
+		success{
+			echo 'ONLY ON SUCESS'
+		}
+
+		failure{
+			echo 'ONLY ON FAILURE'
+		}
+
+		unstable{
+			echo 'ONLY IF RUN IS UNSTABLE'
+		}
+
+		changed{
+			echo 'ONLY IS STATUS CHANGED FROM SUCCESS TO FAILURE OR VICE VERSA'
+		}
+	}
+}

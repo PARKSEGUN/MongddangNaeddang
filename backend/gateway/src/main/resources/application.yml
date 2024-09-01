@@ -1,0 +1,83 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: authServiceCallbackTest
+          uri: lb://UTRSERVER
+          predicates:
+            - Path=/api/auth/kakao/callback, /api/auth/naver/callback
+
+        - id: authServiceInRoute
+          uri: lb://UTRSERVER
+          predicates:
+            - Path=/api/auth/login, /api/auth/signup
+          filters:
+            - name: AuthFilter
+
+        - id: authAutoLoginAndServiceOutRoute
+          uri: lb://UTRSERVER
+          predicates:
+            - Path=/api/auth/logout, /api/auth/delete, /api/auth/autologin
+          filters:
+            - name: JwtFilter
+
+        - id: friendRoute
+          #          uri : http://localhost:8081
+          uri: lb://UTRSERVER # using eureka Server
+          predicates:
+            - Path=/api/friend/**
+        - id: userRoute
+          #          uri : http://localhost:8081
+          uri: lb://UTRSERVER # using eureka Server
+          predicates:
+            - Path=/api/user/**
+        - id: teamRoute
+          #          uri : http://localhost:8081
+          uri: lb://UTRSERVER # using eureka Server
+          predicates:
+            - Path=/api/team/**
+        - id: rankingRoute
+          #          uri : http://localhost:8081
+          uri: lb://UTRSERVER # using eureka Server
+          predicates:
+            - Path=/api/rank/**
+        - id: imageRoute
+          #          uri : http://localhost:8081
+          uri: lb://UTRSERVER
+          predicates:
+            - Path=/api/image/**
+        - id: notificationRoute
+          #          uri : http://localhost:8082
+          uri: lb://MNSERVER
+          predicates:
+            - Path=/api/notification/**
+        - id: gameRoute
+          #          uri : http://localhost:8082
+          uri: lb://MNSERVER
+          predicates:
+            - Path=/api/game/**
+        - id: badgeRoute
+          #          uri : http://localhost:8082
+          uri: lb://MNSERVER
+          predicates:
+            - Path=/api/badge/**
+        - id: redisRoute
+          #          uri : http://localhost:8082
+          uri: lb://MNSERVER
+          predicates:
+            - Path=/api/redis/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG

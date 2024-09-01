@@ -1,0 +1,12 @@
+services:
+  redis:
+    image: mtnt-redis:1.0
+    container_name: mtnt-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
+
+volumes:
+  redis-data:

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "373616173549",
+    "project_id": "mtnt-774cc",
+    "storage_bucket": "mtnt-774cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373616173549:android:1795032f9a3776c2b147e4",
+        "android_client_info": {
+          "package_name": "com.example.frontend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMHEG40vGZ9AC5o4XjbTnqT9S6imdmuUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
