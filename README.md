@@ -32,7 +32,7 @@
 |                 Name                 |                   Role                   | Detail |
 |:------------------------------------:|:----------------------------------------:|:------:|
 |    [안재현](https://github.com/ddd)     |      Team leader, Backend Developer      |      |
-|    [박세건](https://github.com/PARKSEGUN)     |            Backend Developer, Cloud/Infra Engineer             |        |
+|    [박세건](https://github.com/PARKSEGUN)     |            Backend Developer            |        |
 |    [서진경](https://github.com/JinKyeong-Seo)     |            Backend Developer             |        |
 | [이강산](https://github.com/clintkslee) |            Backend Developer             |        |
 |    [이예원](https://github.com/Eyekrw)     | Frontend Developer, Cloud/Infra Engineer |        |
